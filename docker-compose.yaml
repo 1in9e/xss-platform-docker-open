@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  xss:
+    restart: always
+    build: .
+    environment:
+      DEBUG: 'false'
+      TZ: Asia/Shanghai
+    volumes:
+      - ./xss:/app
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+    ports:
+      - "80:80"
